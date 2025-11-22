@@ -32,6 +32,229 @@
             scroll-behavior: smooth;
         }
 
+        /* How It Works - Timeline Animations */
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-of-type(even) .timeline-content {
+            transform: translateX(-40px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+        }
+
+        .timeline-item:nth-of-type(odd) .timeline-content {
+            transform: translateX(40px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+        }
+
+        .timeline-item.visible .timeline-content {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .timeline-number {
+            transform: scale(0) rotate(-180deg);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .timeline-item.visible .timeline-number {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+
+        /* About Section Animations */
+        .about-image {
+            opacity: 0;
+            transform: translateX(-60px) rotate(-5deg);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about.visible .about-image {
+            opacity: 1;
+            transform: translateX(0) rotate(0deg);
+        }
+
+        .about-content {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+        }
+
+        .about.visible .about-content {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .qual-item {
+            opacity: 0;
+            transform: translateX(-30px) scale(0.9);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .about.visible .qual-item:nth-child(1) {
+            animation: qualSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s forwards;
+        }
+
+        .about.visible .qual-item:nth-child(2) {
+            animation: qualSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s forwards;
+        }
+
+        .about.visible .qual-item:nth-child(3) {
+            animation: qualSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.2s forwards;
+        }
+
+        @keyframes qualSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px) scale(0.9);
+            }
+            60% {
+                transform: translateX(10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        /* Locations Section Animations */
+        .location-card {
+            opacity: 0;
+            transform: translateY(80px) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .locations.visible .location-card:nth-child(1) {
+            animation: slideInLocation 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+        }
+
+        .locations.visible .location-card:nth-child(2) {
+            animation: slideInLocation 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+        }
+
+        @keyframes slideInLocation {
+            0% {
+                opacity: 0;
+                transform: translateY(80px) scale(0.9);
+            }
+            60% {
+                transform: translateY(-10px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Contact Section Animations */
+        .contact-info {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact.visible .contact-info {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .contact-method {
+            opacity: 0;
+            transform: translateX(-40px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .contact.visible .contact-method:nth-child(1) {
+            animation: contactMethodSlide 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards;
+        }
+
+        .contact.visible .contact-method:nth-child(2) {
+            animation: contactMethodSlide 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s forwards;
+        }
+
+        .contact.visible .contact-method:nth-child(3) {
+            animation: contactMethodSlide 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.7s forwards;
+        }
+
+        @keyframes contactMethodSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px) scale(0.95);
+            }
+            60% {
+                transform: translateX(5px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        .contact-form {
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+        }
+
+        .contact.visible .contact-form {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .form-group {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact.visible .form-group:nth-child(1) {
+            animation: formFieldFade 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+        }
+
+        .contact.visible .form-group:nth-child(2) {
+            animation: formFieldFade 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.95s forwards;
+        }
+
+        .contact.visible .form-group:nth-child(3) {
+            animation: formFieldFade 0.5s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards;
+        }
+
+        .contact.visible .form-group:nth-child(4) {
+            animation: formFieldFade 0.5s cubic-bezier(0.4, 0, 0.2, 1) 1.25s forwards;
+        }
+
+        .submit-btn {
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.4s;
+        }
+
+        .contact.visible .submit-btn {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        @keyframes formFieldFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Floating Elements Background */
         .floating-bg {
             position: fixed;
@@ -1602,18 +1825,57 @@
         // Timeline smooth animations
         const timelineItems = document.querySelectorAll('.timeline-item');
         const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 300);
+                    entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.3 });
 
         timelineItems.forEach(item => {
             timelineObserver.observe(item);
         });
+        // About section observer
+        const aboutSection = document.querySelector('.about');
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        if (aboutSection) {
+            aboutObserver.observe(aboutSection);
+        }
+
+        // Locations section observer
+        const locationsSection = document.querySelector('.locations');
+        const locationsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        if (locationsSection) {
+            locationsObserver.observe(locationsSection);
+        }
+
+        // Contact section observer
+        const contactSection = document.querySelector('.contact');
+        const contactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        if (contactSection) {
+            contactObserver.observe(contactSection);
+        }
 
         // Testimonials carousel
         let currentTestimonial = 0;
